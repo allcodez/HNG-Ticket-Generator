@@ -37,7 +37,8 @@
 
 .navbar-link {
   text-decoration: none;
-  color: var(--text-white);
+  color: #fff;
+  font-family: var(--p-font1);
   font-weight: 500;
   transition: color 0.3s ease-in-out;
 }

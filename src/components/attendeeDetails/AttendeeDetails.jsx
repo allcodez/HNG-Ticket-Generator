@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { FormContext } from "../../context/FormContext";
 import "./attendeeDetails.css";
 import cloudIcon from "../../assets/images/cloud-download.png";
@@ -8,6 +8,7 @@ const AttendeeDetails = () => {
     const [errors, setErrors] = useState({});
     const [uploading, setUploading] = useState(false);
     const [dragging, setDragging] = useState(false);
+    const fileInputRef = useRef(null);
 
     const validateForm = () => {
         let newErrors = {};
@@ -32,6 +33,26 @@ const AttendeeDetails = () => {
             nextStep();
         }
     };
+
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+
+            const focusableElements = Array.from(
+                document.querySelectorAll("input, textarea, button")
+            );
+
+            const currentIndex = focusableElements.indexOf(event.target);
+
+            if (currentIndex !== -1 && focusableElements[currentIndex + 1]) {
+                focusableElements[currentIndex + 1].focus();
+            } else {
+                handleNext(); // If no next field, proceed to next step
+            }
+        }
+    };
+
+
 
     const handleImageUpload = async (file) => {
         if (!file) return;
@@ -74,25 +95,6 @@ const AttendeeDetails = () => {
         }
     };
 
-    const handleDragOver = (event) => {
-        event.preventDefault();
-        setDragging(true);
-    };
-
-    const handleDragLeave = () => {
-        setDragging(false);
-    };
-
-    const handleDrop = (event) => {
-        event.preventDefault();
-        setDragging(false);
-
-        const file = event.dataTransfer.files[0];
-        if (file) {
-            handleImageUpload(file);
-        }
-    };
-
     return (
         <>
             <div className="form-header">
@@ -101,8 +103,8 @@ const AttendeeDetails = () => {
             </div>
 
             <div className="progress-bar">
-                <div style={{width: "55%"}}></div>
-                <div style={{width: "45%"}}></div>
+                <div style={{ width: "55%" }}></div>
+                <div style={{ width: "45%" }}></div>
             </div>
 
             <div className="form-body">
@@ -110,11 +112,17 @@ const AttendeeDetails = () => {
                     <p>Upload Profile Photo *</p>
                     <div
                         className={`upload-box ${dragging ? "dragging" : ""}`}
-                        onDragOver={handleDragOver}
-                        onDragLeave={handleDragLeave}
-                        onDrop={handleDrop}
+                        tabIndex="0"
+                        onKeyDown={(e) => e.key === "Enter" && fileInputRef.current.click()}
                     >
-                        <input type="file" accept="image/*" onChange={handleFileInputChange} hidden id="fileInput" />
+                        <input
+                            ref={fileInputRef}
+                            type="file"
+                            accept="image/*"
+                            onChange={handleFileInputChange}
+                            hidden
+                            id="fileInput"
+                        />
                         <label
                             htmlFor="fileInput"
                             className={`upload-inner-box ${formData.avatar ? "image-uploaded" : ""}`}
@@ -125,12 +133,12 @@ const AttendeeDetails = () => {
                             }}
                         >
                             <div className="no-image">
-                                <img src={cloudIcon} alt="" width={30} />
-                                <p>Drag & drop or click to <br /> upload</p>
+                                <img src={cloudIcon} alt="Upload icon" width={30} />
+                                <p>Drag & drop or click to upload</p>
                             </div>
                             {!formData.avatar && (
                                 <>
-                                    <img src={cloudIcon} alt="" width={30} />
+                                    <img src={cloudIcon} alt="Upload icon" width={30} />
                                     <p>{uploading ? "Uploading..." : "Drag & drop or click to upload"}</p>
                                 </>
                             )}
@@ -148,6 +156,7 @@ const AttendeeDetails = () => {
                         placeholder="Your Name"
                         value={formData.name || ""}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        onKeyDown={handleKeyDown}
                     />
                     {errors.name && <p className="error-message">{errors.name}</p>}
                 </div>
@@ -159,6 +168,7 @@ const AttendeeDetails = () => {
                         placeholder="✉️ hello@avioflagos.io"
                         value={formData.email || ""}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onKeyDown={handleKeyDown}
                     />
                     {errors.email && <p className="error-message">{errors.email}</p>}
                 </div>
@@ -170,12 +180,28 @@ const AttendeeDetails = () => {
                         value={formData.specialRequest || ""}
                         onChange={(e) => setFormData({ ...formData, specialRequest: e.target.value })}
                         rows={5}
+                        onKeyDown={handleKeyDown}
                     />
                 </div>
 
                 <div className="form-btn">
-                    <button className="cancel-btn" onClick={prevStep}>Back</button>
-                    <button className="next-btn" onClick={handleNext}>Next</button>
+                    <button
+                        className="cancel-btn"
+                        tabIndex="0"
+                        onClick={prevStep}
+                        onKeyDown={(e) => e.key === "Enter" && prevStep()}
+                    >
+                        Back
+                    </button>
+
+                    <button
+                        className="next-btn"
+                        tabIndex="0"
+                        onClick={handleNext}
+                        onKeyDown={handleKeyDown}
+                    >
+                        Next
+                    </button>
                 </div>
             </div>
         </>

@@ -1,0 +1,82 @@
+.navbar {
+  padding: 30px 6rem;
+}
+
+.navbar-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #197686;
+  padding: 1rem;
+  border-radius: 24px;
+  background: rgb(5 37 44 / 40%);
+  /* 40% of this color #05252c, same with the figma file */
+
+}
+
+/* Logo */
+.navbar-logo img {
+  height: 40px;
+}
+
+
+/* Navbar Links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-item {
+  margin-left: 20px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: var(--text-white);
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-link:hover {
+  color: #007bff;
+}
+
+.ticket-btn-container{
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.ticket-btn{
+  border: none;
+  background: none;
+  font-family: var(--p-font1);
+  font-size: 16px;
+}
+
+/* Responsive Navbar */
+@media screen and (max-width: 798px) {
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    padding: 10px;
+    display: none;
+  }
+
+  .navbar-item {
+    margin: 10px 0;
+  }
+}

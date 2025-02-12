@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+
+@font-face {
+  font-family: 'JejuMyeongojo';
+  src: url('./assets/fonts/JejuMyeongjo-Regular.ttf') format('truetype');
+}
+
+:root {
+  --color-bg: #02191D;
+  --text-white: #fff;
+  --text-black: #0A0C11;
+  --color-accent: #24A0B5;
+
+  --custom-font: "Road Rage", serif;
+  --h1-fonts: "JejuMyeongojo", serif;
+  --p-font1: "JejuMyeongojo", serif;
+  --p-font2: "Roboto", serif;
+  --b-font: "Alatsi", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg);
+  overflow-x: hidden;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+  font-family: var(--h1-fonts);
+  line-height: 100%;
+}
+
+/* img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */

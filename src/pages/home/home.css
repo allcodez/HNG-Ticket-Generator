@@ -1,0 +1,142 @@
+.home-section {
+  width: 100vw;
+  overflow: hidden;
+}
+
+.home-copy {
+  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 0;
+}
+
+.home-copy-wrapper {
+  margin: 0.5em 0;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.home-copy-wrapper:nth-child(1) h1 {
+  position: relative;
+  top: 100px;
+  font-family: var(--p-font2);
+  font-weight: 400;
+  font-size: 60px;
+}
+
+.home-copy-wrapper:nth-child(2) h1 {
+  position: relative;
+  top: 300px;
+  font-size: 8rem;
+
+}
+
+.home-copy-wrapper h1 span {
+  position: relative;
+}
+
+.home-img img {
+  width: 150%;
+}
+
+.home-img {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-90%, -30%) rotate(30deg);
+  width: 350px;
+  height: 500px;
+  z-index: 0;
+}
+
+.home-tagline {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  color: #197686;
+  transform: translate(-50%, 0%);
+  text-decoration: none;
+}
+
+.home-tagline p {
+  font-family: var(--p-font1);
+}
+
+.ticket-selection{
+  cursor: pointer;
+  padding: 1.2rem 2.2rem;
+  border: none;
+  font-family: var(--p-font1);
+  font-size: 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1200px) {
+  .home-copy-wrapper:nth-child(1) h1 {
+    font-size: 60px;
+  }
+
+  .home-copy-wrapper:nth-child(2) h1 {
+    font-size: 7rem;
+  }
+
+  .home-img img {
+    width: 120%;
+  }
+
+}
+
+@media (max-width: 900px) {
+  .home-copy-wrapper:nth-child(1) h1 {
+    font-size: 40px;
+  }
+
+  .home-copy-wrapper:nth-child(2) h1 {
+    font-size: 5rem;
+  }
+
+  .home-img img {
+    width: 100%;
+  }
+
+  .home-img {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 30px 1rem;
+  }
+
+  .home-copy-wrapper:nth-child(1) h1 {
+    font-size: 20px;
+  }
+
+  .home-copy-wrapper:nth-child(2) h1 {
+    font-size: 4rem;
+  }
+
+  .home-img {
+    display: none;
+  }
+}
+
+@media (max-width: 415px) {
+  .home-copy-wrapper:nth-child(1) h1 {
+    font-size: 20px;
+  }
+
+  .home-copy-wrapper:nth-child(2) h1 {
+    font-size: 3rem;
+  }
+
+  .home-img {
+    display: none;
+  }
+}

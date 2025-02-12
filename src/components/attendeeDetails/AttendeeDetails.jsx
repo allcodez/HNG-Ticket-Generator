@@ -30,9 +30,12 @@ const AttendeeDetails = () => {
 
     const handleNext = () => {
         if (validateForm()) {
-            nextStep();
+            setTimeout(() => {
+                nextStep();
+            }, 1500);
         }
     };
+
 
     const handleKeyDown = (event) => {
         if (event.key === "Enter") {

@@ -88,6 +88,8 @@ const ReadyStep = () => {
                 <button className="cancel-btn" onClick={handleReset}>Book Another Ticket</button>
                 <button className="next-btn" onClick={handleDownload}>Download Ticket</button>
             </div>
+
+
         </>
     );
 };

@@ -7,8 +7,8 @@ const Menu = () => {
 
   const Links = [
     { name: "Events", link: "/" },
-    { name: "My Tickets", link: "/Ticket" },
-    { name: "About Project", link: "/About" },
+    { name: "My Tickets", link: "/" },
+    { name: "About Project", link: "/" },
   ];
 
   return (

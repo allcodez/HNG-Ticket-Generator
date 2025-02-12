@@ -3,6 +3,10 @@
   overflow: hidden;
 }
 
+button{
+  color: black;
+}
+
 .home-copy {
   position: relative;
   position: absolute;

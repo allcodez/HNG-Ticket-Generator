@@ -122,6 +122,10 @@ textarea {
     margin-top: 2rem;
 }
 
+.attendee-details {
+    font-family: var(--p-font2);
+}
+
 .form-btn {
     width: 100%;
     display: flex;

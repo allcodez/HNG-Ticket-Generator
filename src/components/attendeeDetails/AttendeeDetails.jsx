@@ -184,6 +184,7 @@ const AttendeeDetails = () => {
                         onChange={(e) => setFormData({ ...formData, specialRequest: e.target.value })}
                         rows={5}
                         onKeyDown={handleKeyDown}
+                        style={{ resize: "none" }}
                     />
                 </div>
 

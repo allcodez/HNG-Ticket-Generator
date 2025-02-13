@@ -26,6 +26,10 @@
     position: relative;
 }
 
+.ticket-main-svg{
+    height: 650px;
+}
+
 .ticket-content {
     position: absolute;
     border: 1px solid #24A0B5;

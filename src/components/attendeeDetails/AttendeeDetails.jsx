@@ -203,7 +203,7 @@ const AttendeeDetails = () => {
                         onClick={handleNext}
                         onKeyDown={handleKeyDown}
                     >
-                        Next
+                        Get My Free Ticket
                     </button>
                 </div>
             </div>
